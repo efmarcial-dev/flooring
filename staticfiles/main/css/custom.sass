@@ -1,0 +1,37 @@
+// myapp/static/css/custom.sass
+
+// Import Bulma's core (without components you don't need)
+@import "bulma/sass/utilities/_all";
+@import "bulma/sass/base/_all";
+@import "bulma/sass/grid/_all";
+@import "bulma/sass/elements/box";
+@import "bulma/sass/elements/button";
+@import "bulma/sass/elements/other";
+@import "bulma/sass/layout/columns";
+
+// Your Cape Palliser color palette
+$cape-palliser-50:  #faf7f0;
+$cape-palliser-100: #f1e7d4;
+$cape-palliser-200: #e2cea5;
+$cape-palliser-300: #d3b176;
+$cape-palliser-400: #c89a57;
+$cape-palliser-500: #be8042;
+$cape-palliser-600: #9b5e34;
+$cape-palliser-700: #8b4d32;
+$cape-palliser-800: #733f2d;
+$cape-palliser-900: #5f3528;
+$cape-palliser-950: #351b13;
+
+// Override Bulma's default color variables
+$white: $cape-palliser-50;
+$light: $cape-palliser-100;
+$dark: $cape-palliser-900;
+$primary: $cape-palliser-500;
+$link: $cape-palliser-600;
+$info: $cape-palliser-400;
+$success: #48c78e;
+$warning: #ffe082;
+$danger: #f14668;
+
+// Import the rest of Bulma (or just the components you need)
+@import "bulma/bulma";

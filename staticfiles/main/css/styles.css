@@ -1,0 +1,317 @@
+/* Import Open Sans font with all weights and styles */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* CSS Custom Properties (variables) in :root scope */
+:root {
+  /* Font Family Variable */
+  --font-primary: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  
+  /* Font Weight Variables */
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Optional: Common font sizes you might need */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 3.5rem;    /* 24px */
+  
+  /* Optional: Line heights */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+
+
+  /* Colors */
+
+    --cape-palliser-50:  #faf7f0;
+    --cape-palliser-100: #f1e7d4;
+    --cape-palliser-200: #e2cea5;
+    --cape-palliser-300: #d3b176;
+    --cape-palliser-400: #c89a57;
+    --cape-palliser-500: #be8042;
+    --cape-palliser-600: #9b5e34;
+    --cape-palliser-700: #8b4d32;
+    --cape-palliser-800: #733f2d;
+    --cape-palliser-900: #5f3528;
+    --cape-palliser-950: #351b13;
+
+    --bulma-primary-h: 40deg;
+    --bulma-primary-s: 51%;
+    --bulma-primary-l: 77%;
+
+    --bulma-link-h: 30deg;
+    --bulma-link-s: 49%;
+    --bulma-link-l: 50%;
+
+    --bulma-success-h: 39deg;
+    --bulma-success-s: 51%;
+    --bulma-success-l: 89%;
+
+
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+  /* Example usage */
+  body {
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+    background-color: var(--cape-palliser-50);
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 , .hero-heading{
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-semibold);
+
+  }
+
+.navbar {
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-scrolled {
+  background-color: var(--cape-palliser-200);
+  box-shadow: 0 2ox 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.hero-image {
+  background-image: url('../images/main-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+
+.hero-image .overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.hero-image .hero-body {
+  position: relative;
+  z-index: 2;
+}
+
+.dark-text {
+  color: var(--cape-palliser-950);
+}
+
+.light-text{
+  color: var(--cape-palliser-200);
+}
+
+.section-announcement {
+  background-color: var(--cape-palliser-200);
+  padding: 0.50rem 1rem;
+}
+
+.announcement-text  {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--cape-palliser-900);
+}
+
+.narrow-container {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.image-wrapper {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.rounded-image {
+  border-radius: 12px;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.icon-image {
+  width: 100%;
+  max-width: 120px;
+  margin-bottom: 1rem;
+}
+
+
+.card img {
+  max-height: 64px;
+}
+
+.card-footer {
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+}
+
+.box {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 2rem;
+  border-top: 4px solid var(--cape-palliser-700); /* green */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.box p.has-text-success {
+  font-size: 2rem;
+}
+
+.columns.is-equal-height .column {
+  display: flex;
+}
+.columns.is-equal-height .box {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.icon.is-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#floating-icons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+#floating-icons a {
+  background: var(--cape-palliser-300);
+  color: white;
+  padding: 12px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 18px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+#floating-icons a:hover {
+  transform: scale(1.1);
+}
+
+/* Chat modal */
+#chat-modal {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 320px;
+  max-height: 500px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+}
+
+#chat-header {
+  background: #6C63FF;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#chatbox {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+  max-height: 300px;
+}
+
+#chat-form {
+  display: flex;
+  border-top: 1px solid #ccc;
+}
+
+#chat-form input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+
+#chat-form button {
+  background: #6C63FF;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+
+@media (max-width: 1023px) {
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+}
+
+/* Force image to appear first on mobile screens */
+@media screen and (max-width: 768px){
+  .is-flex-direction-column-reverse-mobile {
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+  }
+
+  .image-wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .narrow-container {
+    max-width: 100%;
+  }
+
+  .navbar-menu {
+    background-color: var(--cape-palliser-200);
+    transition: background-color 0.3s ease;
+  }
+
+
+}

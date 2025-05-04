@@ -1,0 +1,201 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta name="description" content="Nova Web creates modern, responsive websites to help your business grow online. Get started with a custom solution today.">
+    
+        <meta name="author" content="Nova Web">
+      <meta name="robots" content="index, follow">
+    
+      <!-- Open Graph for better social sharing -->
+      <meta property="og:title" content="Nova Web | Web Design, SEO & AI Automation Services">
+      <meta property="og:description" content="Build stunning websites, boost your SEO, and automate workflows with AI — everything your business needs to grow.">
+      <meta property="og:type" content="website">
+      <meta property="og:url" content="https://nova-web-e8ef8ac9d9cd.herokuapp.com/">
+      <meta property="og:image" content="https://nova-web-e8ef8ac9d9cd.herokuapp.com/images/og-cover.jpg"> <!-- Replace with your image -->
+    
+      <!-- Favicon -->
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
+        <title>{% block title %}Professional Flooring Services | Hardwood, Laminate, Vinyl & Tile Installation{% endblock %}</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+        <link rel="stylesheet" href="{% static 'main/css/styles.css' %}">
+        <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    </head>
+<body>
+
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+
+        <div class="navbar-brand">
+            <a href="{% url 'home' %}" class="navbar-item">
+                <img src="{% static 'main/images/logo-dark.png' %}" alt="">
+            </a>
+
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navMenu" class="navbar-menu">
+            <div class="navbar-start">
+
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a type="tel" href="" class="button is-black">999-999-1021</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </nav>
+
+    {% block content %}
+
+
+
+
+    {% endblock %}
+    <footer class="footer" data-theme="dark">
+        <div class="content has-text-centered">
+          <!-- Centered image on top -->
+          <figure class="image is-128x128 is-inline-block ">
+            <img src="{% static 'main/images/flooring_logo.png' %}" alt="Logo or Icon">
+          </figure>
+      
+          <!-- Footer text -->
+          <p>
+            <strong>Flooring Services</strong> by <a href="https://www.novadev.solutions">Nova Solutions</a>.
+            The source code is licensed
+            <a href="https://opensource.org/license/mit">MIT</a>. The
+            website content is licensed
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0//">CC BY NC SA 4.0</a>.
+          </p>
+        </div>
+      </footer>
+
+
+      <!-- Floating Icons -->
+<div id="floating-icons">
+    <a href="https://facebook.com" target="_blank" title="Facebook">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://instagram.com" target="_blank" title="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="#" id="open-chat" title="Chat with us">
+      <i class="fas fa-robot"></i>
+    </a>
+  </div>
+  
+  <!-- Chat Modal -->
+  <div id="chat-modal">
+    <div id="chat-header">
+      <span><i class="fas fa-robot"></i> Ask our assistant</span>
+      <button id="close-chat">&times;</button>
+    </div>
+    <div id="chatbox">
+      <div id="messages"></div>
+      <form id="chat-form">
+        <input type="text" id="user-input" placeholder="Type your message..." required />
+        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </div>
+  
+
+
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const navbar = document.querySelector(".navbar");
+          const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
+      
+          // Scroll behavior
+          window.addEventListener("scroll", () => {
+            if (window.scrollY > 50) {
+              navbar.classList.add("navbar-scrolled");
+            } else {
+              // Only remove if burger menu is not open
+              const isBurgerOpen = document.querySelector(".navbar-burger.is-active");
+              if (!isBurgerOpen) {
+                navbar.classList.remove("navbar-scrolled");
+              }
+            }
+          });
+      
+          // Burger click behavior
+          $navbarBurgers.forEach((el) => {
+            el.addEventListener("click", () => {
+              const target = el.dataset.target;
+              const $target = document.getElementById(target);
+      
+              el.classList.toggle("is-active");
+              $target.classList.toggle("is-active");
+      
+              const isActive = el.classList.contains("is-active");
+      
+              if (isActive) {
+                navbar.classList.add("navbar-scrolled");
+              } else if (window.scrollY <= 50) {
+                navbar.classList.remove("navbar-scrolled");
+              }
+            });
+          });
+        });
+      </script>
+      
+      <script>
+        document.getElementById('open-chat').addEventListener('click', () => {
+          document.getElementById('chat-modal').style.display = 'flex';
+        });
+      
+        document.getElementById('close-chat').addEventListener('click', () => {
+          document.getElementById('chat-modal').style.display = 'none';
+        });
+      
+        const form = document.getElementById("chat-form");
+        const input = document.getElementById("user-input");
+        const messages = document.getElementById("messages");
+        const csrf_token = "{{ csrf_token }}"
+      
+        function addMessage(text, sender) {
+          const div = document.createElement("div");
+          div.textContent = `${sender}: ${text}`;
+          messages.appendChild(div);
+          messages.scrollTop = messages.scrollHeight;
+        }
+      
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const userText = input.value;
+          addMessage(userText, "You");
+          input.value = "";
+      
+          const response = await fetch("{% url 'chat' %}", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-CSRFToken": csrf_token
+            },
+            body: JSON.stringify({ message: userText }),
+          });
+      
+          const data = await response.json();
+          addMessage(data.reply, "Assistant");
+        });
+      </script>
+      
+
+</body>
+</html>

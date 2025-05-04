@@ -1,0 +1,58 @@
+/* myapp/static/css/custom.css */
+
+/* Override primary color for buttons */
+.button.is-primary {
+    background-color: var(--cape-palliser-500);
+    border-color: transparent;
+    color: #fff; /* Or a contrasting color from your palette */
+}
+
+.button.is-primary:hover {
+    background-color: var(--cape-palliser-600);
+}
+
+/* Override background color for boxes */
+.box {
+    background-color: var(--cape-palliser-100);
+    color: var(--cape-palliser-900); /* Adjust text color as needed */
+    border-color: var(--cape-palliser-200); /* Optional border */
+}
+
+/* You might want to adjust text colors based on your palette for better contrast */
+/* Base body styles */
+body {
+    background-color: var(--cape-palliser-50); /* Light background */
+    color: var(--cape-palliser-800); /* Darker text */
+    font-family: sans-serif; /* Or your preferred font */
+    /* Add other base typography styles if needed */
+}
+
+
+/* If you want to adjust link colors */
+a {
+    color: var(--cape-palliser-600);
+}
+
+a:hover {
+    color: var(--cape-palliser-700);
+}
+
+/* You can also target specific typography elements if needed */
+h1, h2, h3 {
+    color: var(--cape-palliser-900);
+}
+
+/* Define your color variables for easier use */
+:root {
+    --cape-palliser-50:  #faf7f0;
+    --cape-palliser-100: #f1e7d4;
+    --cape-palliser-200: #e2cea5;
+    --cape-palliser-300: #d3b176;
+    --cape-palliser-400: #c89a57;
+    --cape-palliser-500: #be8042;
+    --cape-palliser-600: #9b5e34;
+    --cape-palliser-700: #8b4d32;
+    --cape-palliser-800: #733f2d;
+    --cape-palliser-900: #5f3528;
+    --cape-palliser-950: #351b13;
+}
